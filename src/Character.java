@@ -7,7 +7,7 @@ public class Character {
     private int attackPoints;
     private Weapon weapon;
 
-    private Character character(String name,  String characterClass) {
+    public Character character(String name,  String characterClass) {
         this.name = name;
         this.characterClass = characterClass;
         if(characterClass.equals("Warrior")){
@@ -24,10 +24,11 @@ public class Character {
         return this;
     }
     public static void main(String[] args) {
-        createCharacter();
+        Character character= new Character();
+        character.createCharacter();
     }
 
-    public static Character createCharacter() {
+    public Character createCharacter() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the name of your character: ");
         String name = scanner.nextLine();
