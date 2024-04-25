@@ -17,7 +17,6 @@ public class Menu {
             System.out.println("Go to hell ! █▬▬ ◟(`ﮧ´ ◟ )");
         }
     }
-
     private void play() {
         Character.main(null);
         int i = 0;

@@ -2,30 +2,27 @@ import java.util.Scanner;
 
 public class Character {
     private String name;
-    private String characterClass;
-    private int lifePoints;
-    private int attackPoints;
-    private Weapon weapon;
+    private Job job;
 
-    public Character character(String name,  String characterClass) {
-        this.name = name;
-        this.characterClass = characterClass;
-        if(characterClass.equals("Warrior")){
-            this.lifePoints = 10;
-            this.attackPoints = 10;
-            this.weapon = new Weapon("beginningSword",0, "Warrior");
-        }
-        else {
-            this.characterClass = "Mage";
-            this.lifePoints = 6;
-            this.attackPoints = 15;
-            this.weapon = new Weapon("beginningSpell", 0, "Mage");
-        }
-        return this;
+    public Character() {
+    this.name = "Someone";
+    Job job = new Job();
+    this.job = job.getJobByName("Warrior");
     }
+    public Character(String name) {
+        this.name = name;
+        Job job = new Job();
+        this.job = job.getJobByName("Warrior");
+    }
+    public Character(String name, Job job) {
+        this.name = name;
+        this.job = job;
+    }
+
     public static void main(String[] args) {
-        Character character= new Character();
-        character.createCharacter();
+        Character character = new Character();
+        character = character.createCharacter();
+        System.out.println(character);
     }
 
     public Character createCharacter() {
@@ -33,16 +30,13 @@ public class Character {
         System.out.println("Enter the name of your character: ");
         String name = scanner.nextLine();
         System.out.println("Enter the class of your character: ");
-        String getClass = scanner.nextLine();
-        Character someone = new Character().character(name, getClass);
-        System.out.println(someone.name + " is a " + someone.characterClass + " with " + someone.lifePoints + " life points, " + someone.attackPoints + " attack points, and is equipped with a " + someone.weapon.name + ".");
-        return someone;
+        String jobName = scanner.nextLine();
+        job = job.getJobByName(jobName);
+        return new Character(name, job);
     }
 
-    public void setWeapon(Weapon weapon) {
-        if (!weapon.getClassRestriction().equals(this.characterClass)) {
-            throw new IllegalArgumentException("This weapon is not allowed for this class.");
-        }
-        this.weapon = weapon;
+    @Override
+    public String toString() {
+        return name + " is a " + job.getName() + " with " + job.getLifePoints() + " life points, " + job.getAttackPoints() + " attack points, and is equipped with a " + job.getWeapon().getName() + ".";
     }
 }
