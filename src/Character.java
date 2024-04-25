@@ -1,4 +1,3 @@
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Character {
@@ -25,14 +24,20 @@ public class Character {
         return this;
     }
     public static void main(String[] args) {
+        createCharacter();
+    }
+
+    public static Character createCharacter() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the name of your character: ");
         String name = scanner.nextLine();
         System.out.println("Enter the class of your character: ");
         String getClass = scanner.nextLine();
-       Character someone = new Character().character(name, getClass);
+        Character someone = new Character().character(name, getClass);
         System.out.println(someone.name + " is a " + someone.characterClass + " with " + someone.lifePoints + " life points, " + someone.attackPoints + " attack points, and is equipped with a " + someone.weapon.name + ".");
+        return someone;
     }
+
     public void setWeapon(Weapon weapon) {
         if (!weapon.getClassRestriction().equals(this.characterClass)) {
             throw new IllegalArgumentException("This weapon is not allowed for this class.");

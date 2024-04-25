@@ -7,6 +7,7 @@ public class Weapon {
         this.name = name;
         this.damage = damage;
         this.classRestriction = classRestriction;
+
     }
     public String getName() {
         return name;
