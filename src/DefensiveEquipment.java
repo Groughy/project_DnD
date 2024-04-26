@@ -1,2 +1,3 @@
-public class DefensiveEquipment {
+public class DefensiveEquipment extends Item{
+
 }

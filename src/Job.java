@@ -56,30 +56,5 @@ public class Job {
             throw new IllegalArgumentException("Invalid job name");
         }
     }
-    public Job(String name, int lifePoints, int attackPoints) {
-        this.name = name;
-        this.lifePoints = lifePoints;
-        this.attackPoints = attackPoints;
-        this.weapon = new Weapon("beginningWeapon",0,name);
-    }
-    public Job getJobByName(String jobName) {
-        Scanner scanner = new Scanner(System.in);
-        while (true) {
-            System.out.println("Enter the class of your character: ");
-            jobName = scanner.nextLine();
-            switch (jobName) {
-                case "Warrior" -> {
-                    return new Job("Warrior");
-                }
-                case "Mage" -> {
-                    return new Job("Mage");
-                }
-                case "quit", "exit" -> {
-                    System.out.println("Go to hell ! █▬▬ ◟(`ﮧ´ ◟ )");
-                    System.exit(0);
-                }
-                default -> System.out.println("Invalid job name. Please try again.");
-            }
-        }
-    }
+
 }

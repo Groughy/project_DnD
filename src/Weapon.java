@@ -1,10 +1,5 @@
-public class Weapon {
-    private String name;
+public class Weapon extends Item {
     private int damage;
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public int getDamage() {
         return damage;
@@ -21,15 +16,11 @@ public class Weapon {
     private String classRestriction;
 
     public Weapon(String name, int damage, String classRestriction) {
-        this.name = name;
+        this.setName(name);
         this.damage = damage;
         this.classRestriction = classRestriction;
 
     }
-    public String getName() {
-        return name;
-    }
-
     public String getClassRestriction() {
         return classRestriction;
     }
@@ -43,7 +34,7 @@ public class Weapon {
         };
 
         for (Weapon equipment : equipments) {
-            System.out.println(equipment.name + " has a damage of " + equipment.damage + ".");
+            System.out.println(equipment.getName() + " has a damage of " + equipment.damage + ".");
         }
     }
 }

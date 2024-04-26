@@ -1,43 +1,56 @@
 import java.util.Scanner;
-import java.util.Random;
 
 public class Menu {
-    private int[] board = new int [64];
 
-    public Random getRand() {
-        return rand;
+    public Menu (){
+
+    }
+    public Character createCharacter() {
+        Scanner scanner = new Scanner(System.in);
+        display("Enter the name of your character: ");
+        String name = scanner.nextLine();
+        Job job = this.getJobByName();
+        return new Character(name, job);
+    }
+    public boolean launchGame() {
+        display("Welcome to the game! (•̀ᴗ•́)و ̑̑");
+        display("Wanna play ? (yes/no) (੭ ᵔ³ᵔ)੭ 口");
+        return wannaPlay();
     }
 
-    public void setRand(Random rand) {
-        this.rand = rand;
+    private boolean wannaPlay() {
+        return switch (new Scanner(System.in).nextLine()) {
+            case "yes", "Yes", "y", "Y", "" -> true;
+            default -> false;
+        };
     }
-
-    public int[] getBoard() {
-        return board;
-    }
-
-    public void setBoard(int[] board) {
-        this.board = board;
-    }
-
-    private Random rand = new Random();
-    private int rollDice(){
-        return rand.nextInt(5)+1;}
-    void play() {
-        Character character = new Character();
-        character = character.createCharacter();
-        System.out.println(character);
-        int i = 0;
-        while (i < board.length) {
-            System.out.println("Press enter to roll the dice");
-            new Scanner(System.in).nextLine();
-            int dice = rollDice();
-            i += dice;
-            System.out.println("You got a " + dice);
-            System.out.println("You are on the " + i + "th case");
+    public Job getJobByName() {
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            display("Enter the class of your character: ");
+            String jobName = scanner.nextLine();
+            switch (jobName) {
+                case "Warrior" -> {
+                    return new Job("Warrior");
+                }
+                case "Mage" -> {
+                    return new Job("Mage");
+                }
+                case "quit", "exit" -> {
+                    display("Go to hell ! █▬▬ ◟(`ﮧ´ ◟ )");
+                    System.exit(0);
+                }
+                default -> display("Invalid job name. Please try again.");
+            }
         }
-        System.out.println("Bravo, you win !");
-        System.out.println("Wanna play again ? (yes/no)(੭ ᵔ³ᵔ)੭ 口");
-        Main.wannaPlay();
+    }
+
+    public void askToRoll() {
+        display("Press enter to roll the dice");
+        new Scanner(System.in).nextLine();
+    }
+
+    public void display(Object o) {
+        System.out.println(o.toString());
     }
 }

@@ -1,5 +1,5 @@
-public class Consummable {
-    private String name;
+public class Consummable extends Item {
+
     private String effectDescription;
     private int effect;
 
@@ -13,13 +13,7 @@ public class Consummable {
 
     private int value;
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getEffectDescription() {
         return effectDescription;
@@ -38,14 +32,14 @@ public class Consummable {
     }
 
     public Consummable() {
-        this.name = "Little potion";
+        this.setName("Little potion");
         Job job = new Job();
         int value = 2;
         this.effect = job.getLifePoints() + value;
         this.effectDescription = "Grant "+value+" life points";
     }
     public Consummable(String name, int value) {
-        this.name = name;
+        this.setName(name);
         this.value = value;
         Job job = new Job();
         this.effect = job.getLifePoints() + value;
