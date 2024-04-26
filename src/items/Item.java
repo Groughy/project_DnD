@@ -1,3 +1,5 @@
+package items;
+
 public class Item {
     private String name;
 
@@ -9,6 +11,6 @@ public class Item {
         this.name = name;
     }
     public Item() {
-        this.name = "Item";
+        this.name = "items.Item";
     }
 }

@@ -1,3 +1,8 @@
+package rules;
+
+import characters.Character;
+import characters.Job;
+
 import java.util.Scanner;
 
 public class Menu {
@@ -13,7 +18,6 @@ public class Menu {
         return new Character(name, job);
     }
     public boolean launchGame() {
-        display("Welcome to the game! (•̀ᴗ•́)و ̑̑");
         display("Wanna play ? (yes/no) (੭ ᵔ³ᵔ)੭ 口");
         return wannaPlay();
     }

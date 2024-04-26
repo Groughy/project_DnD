@@ -1,4 +1,6 @@
-import java.util.Scanner;
+package characters;
+
+import items.Weapon;
 
 public class Job {
     private String name;

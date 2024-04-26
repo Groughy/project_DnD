@@ -1,4 +1,7 @@
-import java.util.Scanner;
+package rules;
+
+import characters.Character;
+
 import java.util.Random;
 
 public class Game {

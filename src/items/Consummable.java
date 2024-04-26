@@ -1,3 +1,6 @@
+package items;
+import characters.Job;
+
 public class Consummable extends Item {
 
     private String effectDescription;

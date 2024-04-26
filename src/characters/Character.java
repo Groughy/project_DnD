@@ -1,3 +1,5 @@
+package characters;
+
 public class Character {
     private String name;
     private Job job;
