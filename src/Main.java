@@ -9,12 +9,16 @@ public class Main {
     private void launchGame() {
         System.out.println("Welcome to the game! (•̀ᴗ•́)و ̑̑");
         System.out.println("Wanna play ? (yes/no) (੭ ᵔ³ᵔ)੭ 口");
-        if (new Scanner(System.in).nextLine().equals("yes")) {
-            Menu game = new Menu();
-            game.play();
-        }
-        else {
-            System.out.println("Go to hell ! █▬▬ ◟(`ﮧ´ ◟ )");
+        wannaPlay();
+    }
+
+    static void wannaPlay() {
+        switch(new Scanner(System.in).nextLine()) {
+            case "yes", "Yes", "y","Y","": Menu game = new Menu();
+                game.play();
+                break;
+            case "no", "No", "n", "N": System.out.println("Go to hell ! █▬▬ ◟(`ﮧ´ ◟ )");
+                break;
         }
     }
 }

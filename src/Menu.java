@@ -3,11 +3,30 @@ import java.util.Random;
 
 public class Menu {
     private int[] board = new int [64];
+
+    public Random getRand() {
+        return rand;
+    }
+
+    public void setRand(Random rand) {
+        this.rand = rand;
+    }
+
+    public int[] getBoard() {
+        return board;
+    }
+
+    public void setBoard(int[] board) {
+        this.board = board;
+    }
+
     private Random rand = new Random();
     private int rollDice(){
         return rand.nextInt(5)+1;}
     void play() {
-        Character.main(null);
+        Character character = new Character();
+        character = character.createCharacter();
+        System.out.println(character);
         int i = 0;
         while (i < board.length) {
             System.out.println("Press enter to roll the dice");
@@ -19,12 +38,6 @@ public class Menu {
         }
         System.out.println("Bravo, you win !");
         System.out.println("Wanna play again ? (yes/no)(੭ ᵔ³ᵔ)੭ 口");
-        if (new Scanner(System.in).nextLine().equals("yes")) {
-            Menu game = new Menu();
-            game.play();
-        }
-        else {
-            System.out.println("Go to hell ! █▬▬ ◟(`ﮧ´ ◟ )");
-        }
+        Main.wannaPlay();
     }
 }

@@ -2,7 +2,15 @@ import java.util.Scanner;
 
 public class Character {
     private String name;
+
     private Job job;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public Character() {
     this.name = "Someone";
@@ -18,20 +26,10 @@ public class Character {
         this.name = name;
         this.job = job;
     }
-
-    public static void main(String[] args) {
-        Character character = new Character();
-        character = character.createCharacter();
-        System.out.println(character);
-    }
-
     public Character createCharacter() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the name of your character: ");
         String name = scanner.nextLine();
-        System.out.println("Enter the class of your character: ");
-        String jobName = scanner.nextLine();
-        job = job.getJobByName(jobName);
         return new Character(name, job);
     }
 
