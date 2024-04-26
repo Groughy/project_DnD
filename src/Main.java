@@ -2,6 +2,11 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Main launcher = new Main();
+        launcher.launchGame();
+    }
+
+    private void launchGame() {
         System.out.println("Welcome to the game! (•̀ᴗ•́)و ̑̑");
         System.out.println("Wanna play ? (yes/no) (੭ ᵔ³ᵔ)੭ 口");
         if (new Scanner(System.in).nextLine().equals("yes")) {
