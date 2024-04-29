@@ -22,7 +22,6 @@ public class Game {
     void play() {
         Character character = menu.createCharacter();
         Weapon weapon = new Weapon();
-        weapon.displayWeapons();
         menu.display(character);
         int i = 0;
         while (i < board.length) {

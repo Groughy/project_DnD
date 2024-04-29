@@ -34,14 +34,14 @@ public class Consummable extends Item {
         this.effect = effect;
     }
 
-    public Consummable(String name, int value) {
-        this.setName(name);
-        this.value = value;
-        Job job = new Job();
-        this.effect = job.getLifePoints() + value;
-        this.effectDescription = "Grant "+value+" life points";
-    }
+//    public Consummable(String name, int value) {
+//        this.setName(name);
+//        this.value = value;
+//        Job job = new Job();
+//        this.effect = job.getLifePoints() + value;
+//        this.effectDescription = "Grant "+value+" life points";
+//    }
 
-    Consummable LittlePotion = new Consummable("Little potion", 2);
-    Consummable BigPotion = new Consummable("Big potion", 5);
+//    Consummable LittlePotion = new Consummable("Little potion", 2);
+//    Consummable BigPotion = new Consummable("Big potion", 5);
 }

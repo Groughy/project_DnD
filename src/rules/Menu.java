@@ -2,6 +2,8 @@ package rules;
 
 import characters.Character;
 import characters.Job;
+import characters.jobs.Mage;
+import characters.jobs.Warrior;
 
 import java.util.Scanner;
 
@@ -35,10 +37,10 @@ public class Menu {
             String jobName = scanner.nextLine();
             switch (jobName) {
                 case "Warrior", "Guerrier", "warrior","guerrier" -> {
-                    return new Job("Warrior");
+                    return new Warrior("Warrior");
                 }
                 case "Mage","mage" -> {
-                    return new Job("Mage");
+                    return new Mage("Mage");
                 }
                 case "quit", "exit" -> {
                     display("Go to hell ! █▬▬ ◟(`ﮧ´ ◟ )");
