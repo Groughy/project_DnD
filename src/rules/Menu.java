@@ -34,10 +34,10 @@ public class Menu {
             display("Enter the class of your character: ");
             String jobName = scanner.nextLine();
             switch (jobName) {
-                case "Warrior" -> {
+                case "Warrior", "Guerrier", "warrior","guerrier" -> {
                     return new Job("Warrior");
                 }
-                case "Mage" -> {
+                case "Mage","mage" -> {
                     return new Job("Mage");
                 }
                 case "quit", "exit" -> {

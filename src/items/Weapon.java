@@ -2,6 +2,11 @@ package items;
 
 public class Weapon extends Item {
     private int damage;
+    private String classRestriction;
+
+    public Weapon() {
+
+    }
 
     public int getDamage() {
         return damage;
@@ -15,8 +20,6 @@ public class Weapon extends Item {
         this.classRestriction = classRestriction;
     }
 
-    private String classRestriction;
-
     public Weapon(String name, int damage, String classRestriction) {
         this.setName(name);
         this.damage = damage;
@@ -27,7 +30,7 @@ public class Weapon extends Item {
         return classRestriction;
     }
 
-    public static void main(String[] args) {
+    public void displayWeapons(){
         Weapon[] equipments = {
                 new Weapon("Sword", 5, "Warrior"),
                 new Weapon("Mace", 3, "Warrior"),

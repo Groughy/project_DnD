@@ -3,7 +3,6 @@ package characters;
 public class Enemy {
     private String name;
     private int lifePoints;
-    private String ASCII;
 
     public int getAttackPoints() {
         return attackPoints;
@@ -41,15 +40,6 @@ public class Enemy {
         this.name = "Goblin";
         this.lifePoints = 6;
         this.attackPoints = 1;
-        this.ASCII = "     ,     ,\n" +
-                "    (\\____/)\n" +
-                "     (_oo_)\n" +
-                "       (O)\n" +
-                "     __||__    \\)\n" +
-                "  []/______\\ [] /\n" +
-                "  / \\______/ \\/\n" +
-                " /    /__\\\n" +
-                "(\\   /____\\";
     }
     Enemy Goblin = new Enemy("Goblin", 6, 1);
     Enemy Warlock = new Enemy("Warlock",9,2);

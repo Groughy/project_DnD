@@ -34,13 +34,6 @@ public class Consummable extends Item {
         this.effect = effect;
     }
 
-    public Consummable() {
-        this.setName("Little potion");
-        Job job = new Job();
-        int value = 2;
-        this.effect = job.getLifePoints() + value;
-        this.effectDescription = "Grant "+value+" life points";
-    }
     public Consummable(String name, int value) {
         this.setName(name);
         this.value = value;
