@@ -2,7 +2,6 @@ package rules;
 
 import characters.Character;
 import items.Weapon;
-
 import java.util.Random;
 
 public class Game {

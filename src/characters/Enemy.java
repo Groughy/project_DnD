@@ -41,7 +41,4 @@ public class Enemy {
         this.lifePoints = 6;
         this.attackPoints = 1;
     }
-    Enemy Goblin = new Enemy("Goblin", 6, 1);
-    Enemy Warlock = new Enemy("Warlock",9,2);
-    Enemy Dragon = new Enemy("Dragon",15,4);
 }
