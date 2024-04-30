@@ -14,6 +14,11 @@ abstract public class Character {
 
     }
 
+    @Override
+    public String toString() {
+        return name + " is a " + job.getName() + " with " + getLifePoints() + " life points, " + getAttackPoints() + " attack points, and is equipped with a " + job.getWeapon().getName() + ".";
+    }
+
     public String getName() {
         return name;
     }
