@@ -1,19 +1,19 @@
 package characters;
 
-import items.Weapon;
+import items.OffensiveEquipment;
 
 public class Job extends Character{
     private String name;
-    private Weapon weapon;
+    private OffensiveEquipment weapon;
 
-    public Weapon getWeapon() {
+    public OffensiveEquipment getWeapon() {
         if (!weapon.getClassRestriction().equals(this.getName())) {
             throw new IllegalArgumentException("This weapon is not allowed for this class.");
         }
         return weapon;
     }
 
-    public void setWeapon(Weapon weapon) {
+    public void setWeapon(OffensiveEquipment weapon) {
         this.weapon = weapon;
     }
 

@@ -1,7 +1,7 @@
 package rules;
 
 import characters.Character;
-import items.Weapon;
+import items.OffensiveEquipment;
 import java.util.Random;
 
 public class Game {
@@ -20,7 +20,7 @@ public class Game {
 
     void play() {
         Character character = menu.createCharacter();
-        Weapon weapon = new Weapon();
+        OffensiveEquipment weapon = new OffensiveEquipment();
         menu.display(character);
         int i = 0;
         while (i < board.length) {
