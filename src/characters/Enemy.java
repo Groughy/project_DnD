@@ -1,6 +1,6 @@
 package characters;
 
-public class Enemy {
+public class Enemy extends Character{
     private String name;
     private int lifePoints;
 

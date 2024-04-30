@@ -2,20 +2,16 @@ package characters;
 
 abstract public class Character {
     private String name;
-    private Job job;
     private int lifePoints;
     private int attackPoints;
 
-    public Character(String name, Job job) {
-        this.name = name;
-        this.job = job;
-    }
-    public Character() {
+        public Character() {
 
     }
 
     @Override
     public String toString() {
+        Job job = (Job) this;
         return name + " is a " + job.getName() + " with " + getLifePoints() + " life points, " + getAttackPoints() + " attack points, and is equipped with a " + job.getWeapon().getName() + ".";
     }
 
@@ -40,13 +36,5 @@ abstract public class Character {
 
     public void setLifePoints(int lifePoints) {
         this.lifePoints = lifePoints;
-    }
-
-    public Job getJob() {
-        return job;
-    }
-
-    public void setJob(Job job) {
-        this.job = job;
     }
 }

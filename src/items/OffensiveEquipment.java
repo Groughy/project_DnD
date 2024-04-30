@@ -34,17 +34,4 @@ public class OffensiveEquipment extends Item {
     public String getClassRestriction() {
         return classRestriction;
     }
-
-    public void displayWeapons(){
-        OffensiveEquipment[] equipments = {
-                new OffensiveEquipment("Sword", 5, "Warrior"),
-                new OffensiveEquipment("Mace", 3, "Warrior"),
-                new OffensiveEquipment("Fire Ball", 7, "Mage"),
-                new OffensiveEquipment("Thunder Bolt", 2, "Mage")
-        };
-
-        for (OffensiveEquipment equipment : equipments) {
-            System.out.println(equipment.getName() + " has a damage of " + equipment.damage + ".");
-        }
-    }
 }

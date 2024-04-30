@@ -1,9 +1,6 @@
 package rules;
 
-import characters.Job;
 import exceptions.CharacterOutofBoundsException;
-import items.OffensiveEquipment;
-
 import java.util.Random;
 
 public class Game {
@@ -15,7 +12,6 @@ public class Game {
         this.menu = menu;
     }
 
-
     private int rollDice() {
         return rand.nextInt(5) + 1;
     }
@@ -23,7 +19,6 @@ public class Game {
     void play() throws CharacterOutofBoundsException {
         String name = menu.askName();
         Menu character = menu.createCharacter(name);
-        OffensiveEquipment weapon = new OffensiveEquipment();
         menu.display(character);
         turnBoard();
     }
@@ -38,7 +33,7 @@ public class Game {
             menu.display("You are on the " + i + "th case");
             try {
                 if (i > board.length) {
-                    throw new CharacterOutofBoundsException();
+                    throw new CharacterOutofBoundsException ();
                 }
             } catch (CharacterOutofBoundsException e) {
                 menu.display("You can't go further than the 64th case");
@@ -46,21 +41,5 @@ public class Game {
             }
         }
         menu.display("Bravo, you win !");
-    }
-
-    public Random getRand() {
-        return rand;
-    }
-
-    public void setRand(Random rand) {
-        this.rand = rand;
-    }
-
-    public int[] getBoard() {
-        return board;
-    }
-
-    public void setBoard(int[] board) {
-        this.board = board;
     }
 }
