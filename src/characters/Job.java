@@ -19,6 +19,7 @@ public class Job extends Character{
 
     public Job() {
         super();
+        weapon = new OffensiveEquipment("beginning weapon", 0);
 
     }
 

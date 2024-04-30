@@ -1,6 +1,5 @@
 package rules;
 
-import characters.Character;
 import characters.Job;
 import characters.jobs.Mage;
 import characters.jobs.Warrior;
@@ -9,15 +8,20 @@ import java.util.Scanner;
 
 public class Menu {
 
+    private Job characterJob;
+    private String characterName;
     public Menu (){
 
     }
-    public Character createCharacter() {
-        Scanner scanner = new Scanner(System.in);
-        display("Enter the name of your character: ");
-        String name = scanner.nextLine();
+
+    public Menu(String name, Job job) {
+        this.characterName = name;
+        this.characterJob = job;
+    }
+
+    public Menu createCharacter(String name) {
         Job job = this.getJobByName();
-        return new Character(name, job);
+        return new Menu(name, job);
     }
     public boolean launchGame() {
         display("Wanna play ? (yes/no) (੭ ᵔ³ᵔ)੭ 口");
@@ -58,5 +62,15 @@ public class Menu {
 
     public void display(Object o) {
         System.out.println(o.toString());
+    }
+
+    public String askName() {
+        Scanner scanner = new Scanner(System.in);
+        display("Enter the name of your character: ");
+        return scanner.nextLine();
+    }
+    @Override
+    public String toString() {
+        return characterName + " is a " + characterJob.getName() + " with " + characterJob.getLifePoints() + " life points, " + characterJob.getAttackPoints() + " attack points, and is equipped with a " + characterJob.getWeapon().getName() + ".";
     }
 }

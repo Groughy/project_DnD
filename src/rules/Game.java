@@ -1,6 +1,6 @@
 package rules;
 
-import characters.Character;
+import characters.Job;
 import items.OffensiveEquipment;
 import java.util.Random;
 
@@ -19,7 +19,8 @@ public class Game {
     }
 
     void play() {
-        Character character = menu.createCharacter();
+        String name = menu.askName();
+        Menu character = menu.createCharacter(name);
         OffensiveEquipment weapon = new OffensiveEquipment();
         menu.display(character);
         int i = 0;

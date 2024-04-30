@@ -1,6 +1,6 @@
 package characters;
 
-public class Character {
+abstract public class Character {
     private String name;
     private Job job;
     private int lifePoints;
@@ -12,11 +12,6 @@ public class Character {
     }
     public Character() {
 
-    }
-
-    @Override
-    public String toString() {
-        return name + " is a " + job.getName() + " with " + job.getLifePoints() + " life points, " + job.getAttackPoints() + " attack points, and is equipped with a " + job.getWeapon().getName() + ".";
     }
 
     public String getName() {

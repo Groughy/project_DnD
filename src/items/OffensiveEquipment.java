@@ -8,6 +8,11 @@ public class OffensiveEquipment extends Item {
 
     }
 
+    public OffensiveEquipment(String beginningWeapon, int i) {
+        this.setName(beginningWeapon);
+        this.damage = i;
+    }
+
     public int getDamage() {
         return damage;
     }
