@@ -8,21 +8,13 @@ import java.util.Scanner;
 
 public class Menu {
 
-    private Job characterJob;
-    private String characterName;
     public Menu (){
 
     }
 
-    public Menu(String name, Job job) {
-        this.characterName = name;
-        this.characterJob = job;
-    }
 
-    public Menu createCharacter(String name) {
-        Job job = this.getJobByName();
-        return new Menu(name, job);
-    }
+
+
     public boolean launchGame() {
         display("Wanna play ? (yes/no) (੭ ᵔ³ᵔ)੭ 口");
         return wannaPlay();
@@ -39,12 +31,12 @@ public class Menu {
         while (true) {
             display("Enter the class of your character: ");
             String jobName = scanner.nextLine();
-            switch (jobName) {
-                case "Warrior", "Guerrier", "warrior","guerrier" -> {
-                    return new Warrior("Warrior");
+            switch (jobName.toLowerCase()) {
+                case "warrior","guerrier" -> {
+                    return new Warrior();
                 }
-                case "Mage","mage" -> {
-                    return new Mage("Mage");
+                case "mage" -> {
+                    return new Mage();
                 }
                 case "quit", "exit" -> {
                     display("Go to hell ! █▬▬ ◟(`ﮧ´ ◟ )");
@@ -65,12 +57,7 @@ public class Menu {
     }
 
     public String askName() {
-        Scanner scanner = new Scanner(System.in);
         display("Enter the name of your character: ");
-        return scanner.nextLine();
-    }
-    @Override
-    public String toString() {
-        return characterName + " is a " + characterJob.getName() + " with " + characterJob.getLifePoints() + " life points, " + characterJob.getAttackPoints() + " attack points, and is equipped with a " + characterJob.getWeapon().getName() + ".";
+        return new Scanner(System.in).nextLine();
     }
 }

@@ -1,5 +1,6 @@
 package rules;
 
+import characters.Job;
 import exceptions.CharacterOutofBoundsException;
 import java.util.Random;
 
@@ -16,14 +17,16 @@ public class Game {
         return rand.nextInt(5) + 1;
     }
 
-    void play() throws CharacterOutofBoundsException {
+    void play() {
+        Menu menu = new Menu();
         String name = menu.askName();
-        Menu character = menu.createCharacter(name);
+        Job character = new Job(menu);
+        character =  character.createCharacter();
         menu.display(character);
         turnBoard();
     }
 
-    private void turnBoard() throws CharacterOutofBoundsException {
+    private void turnBoard() {
         int i = 0;
         while (i < board.length) {
             menu.askToRoll();

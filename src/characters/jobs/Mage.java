@@ -5,7 +5,7 @@ import items.OffensiveEquipment;
 
 public class Mage extends Job {
     OffensiveEquipment weapon;
-    public Mage(String mage) {
+    public Mage() {
         this.setName("Mage");
         this.setLifePoints(6);
         this.setAttackPoints(15);
