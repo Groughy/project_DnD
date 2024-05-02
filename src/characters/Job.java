@@ -9,10 +9,7 @@ public class Job extends Character{
     private Menu menu;
 
     public OffensiveEquipment getWeapon() {
-        if (!weapon.getClassRestriction().equals(this.getName())) {
-            throw new IllegalArgumentException("This weapon is not allowed for this class.");
-        }
-        return weapon;
+            return weapon;
     }
 
 

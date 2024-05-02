@@ -9,11 +9,7 @@ import java.util.Scanner;
 public class Menu {
 
     public Menu (){
-
     }
-
-
-
 
     public boolean launchGame() {
         display("Wanna play ? (yes/no) (੭ ᵔ³ᵔ)੭ 口");

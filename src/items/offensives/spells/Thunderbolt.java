@@ -1,7 +1,7 @@
-package items.offensive.spells;
+package items.offensives.spells;
 
 import characters.jobs.Mage;
-import items.offensive.Spell;
+import items.offensives.Spell;
 
 public class Thunderbolt extends Spell {
     public Thunderbolt(String name, int damage, Mage mage) {

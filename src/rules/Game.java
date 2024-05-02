@@ -27,15 +27,15 @@ public class Game {
     }
 
     private void turnBoard() {
-        int i = 0;
-        while (i < board.length) {
+        int playerPosition = 0;
+        while (playerPosition < board.length) {
             menu.askToRoll();
             int dice = rollDice();
-            i += dice;
+            playerPosition += dice;
             menu.display("You got a " + dice);
-            menu.display("You are on the " + i + "th case");
+            menu.display("You are on the " + playerPosition + "th case");
             try {
-                if (i > board.length) {
+                if (playerPosition > board.length) {
                     throw new CharacterOutofBoundsException ();
                 }
             } catch (CharacterOutofBoundsException e) {

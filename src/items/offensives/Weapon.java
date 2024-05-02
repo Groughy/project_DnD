@@ -1,4 +1,4 @@
-package items.offensive;
+package items.offensives;
 
 import characters.jobs.Warrior;
 import items.OffensiveEquipment;

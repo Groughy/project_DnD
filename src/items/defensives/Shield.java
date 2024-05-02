@@ -1,4 +1,4 @@
-package items.defensive;
+package items.defensives;
 
 import items.DefensiveEquipment;
 

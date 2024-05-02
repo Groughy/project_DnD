@@ -1,7 +1,7 @@
 package characters.jobs;
 
 import characters.Job;
-import items.offensive.Spell;
+import items.offensives.Spell;
 
 public class Mage extends Job {
     public Mage() {
