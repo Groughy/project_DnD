@@ -11,6 +11,10 @@ public class OffensiveEquipment extends Item {
         this.damage = i;
     }
 
+    public OffensiveEquipment() {
+
+    }
+
     public int getDamage() {
         return damage;
     }

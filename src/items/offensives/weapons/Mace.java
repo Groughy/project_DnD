@@ -1,10 +1,13 @@
 package items.offensives.weapons;
 
-import characters.jobs.Warrior;
 import items.offensives.Weapon;
 
 public class Mace extends Weapon {
-    public Mace(String name, int i, Warrior warrior) {
-        super(name, i, warrior);
+
+    public Mace(){
+        super();
+        this.setName("Mace");
+        this.setDamage(3);
+        this.setClassRestriction(getWarrior());
     }
 }

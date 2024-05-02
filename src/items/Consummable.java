@@ -1,5 +1,4 @@
 package items;
-import characters.Job;
 
 public class Consummable extends Item {
 
@@ -42,6 +41,4 @@ public class Consummable extends Item {
 //        this.effectDescription = "Grant "+value+" life points";
 //    }
 
-//    Consummable LittlePotion = new Consummable("Little potion", 2);
-//    Consummable BigPotion = new Consummable("Big potion", 5);
 }
