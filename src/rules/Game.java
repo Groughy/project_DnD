@@ -21,10 +21,8 @@ public class Game {
     }
 
     void play() {
-        Menu menu = new Menu();
         String name = menu.askName();
-        Job character = new Job(menu);
-        character =  character.createCharacter();
+        Job character = new Job(menu).createCharacter();
         menu.display(character);
         turnBoard(board);
     }
@@ -38,7 +36,6 @@ public class Game {
                 if (playerPosition >= board.getSize()) {
                     throw new CharacterOutofBoundsException ();
                 }
-                Case currentCase = board.getBoard(playerPosition);
                 menu.display("You got a " + dice);
                 menu.display("You are on the " + playerPosition + "th case");
                 board.randomizeCase(playerPosition);

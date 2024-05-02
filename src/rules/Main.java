@@ -1,9 +1,7 @@
 package rules;
 
-import exceptions.CharacterOutofBoundsException;
-
 public class Main {
-    public static void main(String[] args) throws CharacterOutofBoundsException {
+    public static void main(String[] args){
         Menu launcher = new Menu();
         while (launcher.launchGame()) {
             Game game = new Game(launcher);

@@ -90,10 +90,10 @@ public class ChestCase implements Case {
         Philtre result;
         int randomPhiltre = rand.nextInt(2);
         if (randomPhiltre == 0) {
-            System.out.println("Tu as trouvé un philtre de force.");
+            System.out.println("Tu as trouvé un philtre explosif.");
             result = new Philtre();
         } else {
-            System.out.println("Tu as trouvé un philtre de défense.");
+            System.out.println("Tu as trouvé un philtre de soin.");
             result = new Philtre();
         }
         return result;

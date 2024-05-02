@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class Menu {
 
+    private Scanner scanner = new Scanner(System.in);
     public Menu (){
     }
 
@@ -17,13 +18,13 @@ public class Menu {
     }
 
     private boolean wannaPlay() {
-        return switch (new Scanner(System.in).nextLine()) {
+        return switch (scanner.nextLine()) {
             case "yes", "Yes", "y", "Y", "" -> true;
             default -> false;
         };
     }
     public Job getJobByName() {
-        Scanner scanner = new Scanner(System.in);
+
         while (true) {
             display("Enter the class of your character: ");
             String jobName = scanner.nextLine();
@@ -45,7 +46,7 @@ public class Menu {
 
     public void askToRoll() {
         display("Press enter to roll the dice");
-        new Scanner(System.in).nextLine();
+        scanner.nextLine();
     }
 
     public void display(Object o) {
@@ -54,6 +55,6 @@ public class Menu {
 
     public String askName() {
         display("Enter the name of your character: ");
-        return new Scanner(System.in).nextLine();
+        return scanner.nextLine();
     }
 }
