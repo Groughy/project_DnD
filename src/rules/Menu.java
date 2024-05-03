@@ -55,6 +55,7 @@ public class Menu {
 
     public String askName() {
         display("Enter the name of your character: ");
-        return scanner.nextLine();
+        Scanner askName = new Scanner(System.in);
+        return askName.nextLine();
     }
 }

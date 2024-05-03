@@ -20,12 +20,12 @@ public class Enemy extends Character{
         this.lifePoints = lifePoints;
     }
 
-    public String getName() {
+    public String getNameCharacter() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameCharacter(String nameCharacter) {
+        this.name = nameCharacter;
     }
 
     private int attackPoints;

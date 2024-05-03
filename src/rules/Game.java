@@ -3,14 +3,10 @@ package rules;
 import characters.Job;
 import exceptions.CharacterOutofBoundsException;
 
-
-import java.util.Random;
-
-public class Game {
+public class Game implements Case{
 
     private Board board = new Board(64);
-    private Random rand = new Random();
-    private final Menu menu;
+    private  Menu menu;
 
     public Game(Menu menu) {
         this.menu = menu;
@@ -22,10 +18,15 @@ public class Game {
 
     void play() {
         String name = menu.askName();
-        Job character = new Job(menu).createCharacter();
-        menu.display(character);
+        Job character = menu.getJobByName();
+        displayCharacter(name, character);
         turnBoard(board);
     }
+
+    private void displayCharacter(String name, Job character) {
+        System.out.println(name + " is a " + character.getClass().getSimpleName() + " with "  + character.getLifePoints() + " life points, " + character.getAttackPoints() + " attack points, and is equipped with a " + character.getWeapon().getName() + ".");
+    }
+
     private void turnBoard(Board board){
         int playerPosition = 0;
         while (playerPosition < board.getSize()) {
@@ -38,7 +39,7 @@ public class Game {
                 }
                 menu.display("You got a " + dice);
                 menu.display("You are on the " + playerPosition + "th case");
-                board.randomizeCase(playerPosition);
+                randomizeCase();
             } catch (CharacterOutofBoundsException e) {
                 menu.display("You can't go further than the 63th case");
                 break;
