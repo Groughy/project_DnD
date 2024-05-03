@@ -6,7 +6,6 @@ import characters.enemies.Dragon;
 import characters.enemies.Goblin;
 import characters.enemies.Warlock;
 import rules.Case;
-import rules.Menu;
 
 public class EnemyCase implements Case {
 
@@ -36,7 +35,7 @@ public class EnemyCase implements Case {
 
     public void fight(Job character, Enemy enemy) {
         while (character.getLifePoints() > 0 && enemy.getLifePoints() > 0) {
-            character.setLifePoints(character.getLifePoints() - enemy.getAttackPoints());
+            character.setLifePoints((character.getDefensePoints()+character.getLifePoints()) - enemy.getAttackPoints());
             enemy.setLifePoints(enemy.getLifePoints() - character.getAttackPoints());
         }
         if (character.getLifePoints() <= 0) {

@@ -1,7 +1,6 @@
 package rules;
 
 import characters.Job;
-import items.Consummable;
 import items.consummables.Elixir;
 import items.consummables.Potion;
 import items.defensives.philtres.ExplosivePhiltre;
@@ -25,10 +24,7 @@ public interface Find extends Case, Equip {
         }
     }
 
-    default void drinkPotion(Job character, Consummable consummable) {
-        character.setLifePoints(character.getLifePoints() + consummable.getEffect());
-        System.out.println(character.getNameCharacter() + " drinks " + consummable.getName() + " and gains " + consummable.getEffect() + " life points.");
-    }
+
 
     default void findOffensiveItem(Job character) {
         int randomOffensiveItem = rand.nextInt(2);
