@@ -5,6 +5,15 @@ import items.OffensiveEquipment;
 public class Job extends Character{
     private String nameCharacter;
     private OffensiveEquipment weapon;
+    private int defensePoints;
+
+    public int getDefensePoints() {
+        return defensePoints;
+    }
+
+    public void setDefensePoints(int defensePoints) {
+        this.defensePoints = defensePoints;
+    }
 
     public OffensiveEquipment getWeapon() {
             return weapon;

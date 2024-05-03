@@ -1,5 +1,7 @@
 package items;
 
+import characters.Job;
+
 public class Consummable extends Item {
 
     private String effectDescription;
@@ -32,13 +34,8 @@ public class Consummable extends Item {
     public void setEffect(int effect) {
         this.effect = effect;
     }
-
-//    public Consummable(String name, int value) {
-//        this.setName(name);
-//        this.value = value;
-//        Job job = new Job();
-//        this.effect = job.getLifePoints() + value;
-//        this.effectDescription = "Grant "+value+" life points";
-//    }
-
+    public void drinkPotion(Job character, Consummable consummable) {
+        character.setLifePoints(character.getLifePoints() + consummable.getEffect());
+        System.out.println(character.getNameCharacter() + " drinks " + consummable.getName() + " and gains " + consummable.getEffect() + " life points.");
+    }
 }

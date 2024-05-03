@@ -1,9 +1,12 @@
 package items.offensives;
 
+import characters.Job;
 import characters.jobs.Mage;
 import items.OffensiveEquipment;
 
 public class Spell extends OffensiveEquipment {
+
+    private Mage mage;
 
     public Spell(String beginningStaff, int i, Mage mage) {
         super(beginningStaff, i, mage);
@@ -12,9 +15,10 @@ public class Spell extends OffensiveEquipment {
     public Mage getMage() {
         return mage;
     }
-
-    private Mage mage;
     public Spell() {
+    }
 
+    public void castSpell(Job character, Spell item) {
+        character.setAttackPoints(character.getAttackPoints() + item.getDamage());
     }
 }

@@ -6,7 +6,7 @@ import exceptions.CharacterOutofBoundsException;
 public class Game implements Case{
 
     private Board board = new Board(64);
-    private  Menu menu;
+    private Menu menu;
 
     public Game(Menu menu) {
         this.menu = menu;

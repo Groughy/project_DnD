@@ -11,5 +11,6 @@ public class Warrior extends Job {
         this.setLifePoints(10);
         this.setAttackPoints(10);
         this.setWeapon(new Weapon("beginning sword",0,Warrior.this));
+        this.setDefensePoints(0);
     }
 }

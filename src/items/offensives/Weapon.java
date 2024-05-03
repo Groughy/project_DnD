@@ -1,5 +1,6 @@
 package items.offensives;
 
+import characters.Job;
 import characters.jobs.Warrior;
 import items.OffensiveEquipment;
 
@@ -16,5 +17,9 @@ public class Weapon extends OffensiveEquipment {
 
     public Weapon() {
         super();
+    }
+
+    public void equipWeapon(Job character, Weapon item) {
+        character.setAttackPoints(character.getAttackPoints() + item.getDamage());
     }
 }
