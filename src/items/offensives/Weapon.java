@@ -19,7 +19,5 @@ public class Weapon extends OffensiveEquipment {
         super();
     }
 
-    public void equipWeapon(Job character, Weapon item) {
-        character.setAttackPoints(character.getAttackPoints() + item.getDamage());
-    }
+
 }

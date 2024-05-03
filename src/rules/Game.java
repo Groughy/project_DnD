@@ -20,14 +20,14 @@ public class Game implements Case{
         String name = menu.askName();
         Job character = menu.getJobByName();
         displayCharacter(name, character);
-        turnBoard(board);
+        turnBoard(board, character);
     }
 
     private void displayCharacter(String name, Job character) {
         System.out.println(name + " is a " + character.getClass().getSimpleName() + " with "  + character.getLifePoints() + " life points, " + character.getAttackPoints() + " attack points, and is equipped with a " + character.getWeapon().getName() + ".");
     }
 
-    private void turnBoard(Board board){
+    private void turnBoard(Board board, Job character){
         int playerPosition = 0;
         while (playerPosition < board.getSize()) {
             menu.askToRoll();
@@ -39,7 +39,7 @@ public class Game implements Case{
                 }
                 menu.display("You got a " + dice);
                 menu.display("You are on the " + playerPosition + "th case");
-                randomizeCase();
+                randomizeCase(character);
             } catch (CharacterOutofBoundsException e) {
                 menu.display("You can't go further than the 63th case");
                 break;

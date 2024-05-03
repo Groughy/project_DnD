@@ -5,28 +5,27 @@ import characters.Job;
 import characters.enemies.Dragon;
 import characters.enemies.Goblin;
 import characters.enemies.Warlock;
-import rules.Menu;
 import rules.Case;
-
+import rules.Menu;
 
 public class EnemyCase implements Case {
 
-    private Menu menu = new Menu();
-    public EnemyCase() {
-        getEnemy();
+
+    public EnemyCase(Job character) {
+        getEnemy(character);
     }
 
-    public Enemy getEnemy() {
+    public void getEnemy(Job character) {
         int randomEnemy = rand.nextInt(100) + 1;
         if (randomEnemy < 70) {
             System.out.println("Tu as trouvé un gobelin.");
-            return new Goblin();
+            fight(character, new Goblin());
         } else if (randomEnemy < 90) {
             System.out.println("Tu as trouvé un sorcier.");
-            return new Warlock();
+            fight(character, new Warlock());
         } else {
             System.out.println("Tu as trouvé un dragon.");
-            return new Dragon();
+            fight(character, new Dragon());
         }
     }
 
@@ -42,9 +41,9 @@ public class EnemyCase implements Case {
         }
         if (character.getLifePoints() <= 0) {
             System.out.println("Game Over !");
-            menu.launchGame();
+            System.exit(0);
         } else {
-            System.out.println("Tu as gagné !");
+            System.out.println("Tu as gagné ce combat ! Il te reste " + character.getLifePoints() + " points de vie.");
         }
     }
 }

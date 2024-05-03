@@ -1,5 +1,7 @@
 package rules;
 
+import characters.Job;
+
 public class Board {
 
     private int size;
@@ -12,6 +14,5 @@ public class Board {
     public int getSize() {
         return size;
     }
-
 
 }

@@ -34,8 +34,5 @@ public class Consummable extends Item {
     public void setEffect(int effect) {
         this.effect = effect;
     }
-    public void drinkPotion(Job character, Consummable consummable) {
-        character.setLifePoints(character.getLifePoints() + consummable.getEffect());
-        System.out.println(character.getNameCharacter() + " drinks " + consummable.getName() + " and gains " + consummable.getEffect() + " life points.");
-    }
+
 }

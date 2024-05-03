@@ -18,7 +18,5 @@ public class Spell extends OffensiveEquipment {
     public Spell() {
     }
 
-    public void castSpell(Job character, Spell item) {
-        character.setAttackPoints(character.getAttackPoints() + item.getDamage());
-    }
+
 }
