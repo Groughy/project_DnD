@@ -2,7 +2,7 @@ package rules.cases;
 
 import characters.Job;
 import rules.Case;
-import rules.Find;
+import rules.interactions.Find;
 
 public class ChestCase implements Case, Find {
 

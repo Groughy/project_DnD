@@ -2,11 +2,21 @@ package rules;
 
 import characters.Job;
 import exceptions.CharacterOutofBoundsException;
+import rules.interactions.Fight;
 
-public class Game implements Case{
+public class Game implements Case, Fight {
 
     private Board board = new Board(64);
     private Menu menu;
+    private int playerPosition = 0;
+
+    public int getPlayerPosition() {
+        return playerPosition;
+    }
+
+    public void setPlayerPosition(int playerPosition) {
+        this.playerPosition = playerPosition;
+    }
 
     public Game(Menu menu) {
         this.menu = menu;
@@ -16,19 +26,19 @@ public class Game implements Case{
         return rand.nextInt(5) + 1;
     }
 
-    void play() {
+    void play(Game game) {
         String name = menu.askName();
         Job character = menu.getJobByName();
         displayCharacter(name, character);
-        turnBoard(board, character);
+        turnBoard(board, character, game);
     }
 
     private void displayCharacter(String name, Job character) {
         System.out.println(name + " is a " + character.getClass().getSimpleName() + " with "  + character.getLifePoints() + " life points, " + character.getAttackPoints() + " attack points, and is equipped with a " + character.getWeapon().getName() + ".");
     }
 
-    private void turnBoard(Board board, Job character){
-        int playerPosition = 0;
+    private void turnBoard(Board board, Job character, Game game){
+
         while (playerPosition < board.getSize()) {
             menu.askToRoll();
             int dice = rollDice();
@@ -37,14 +47,15 @@ public class Game implements Case{
                 if (playerPosition >= board.getSize()) {
                     throw new CharacterOutofBoundsException ();
                 }
-                menu.display("You got a " + dice);
-                menu.display("You are on the " + playerPosition + "th case");
-                randomizeCase(character);
+                menu.display("Tu as obtenu un " + dice);
+                menu.display("Tu es à la " + playerPosition + " ème case.");
+                randomizeCase(character, game);
             } catch (CharacterOutofBoundsException e) {
-                menu.display("You can't go further than the 63th case");
+                menu.display("T'es au bout du tableau !");
                 break;
             }
         }
-        menu.display("Bravo, you win !");
+        menu.display("Bravo, tu as fini le jeu ! Merci d'avoir joué !");
     }
+
 }

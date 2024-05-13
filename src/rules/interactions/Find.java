@@ -1,4 +1,4 @@
-package rules;
+package rules.interactions;
 
 import characters.Job;
 import items.consummables.Elixir;
@@ -11,6 +11,7 @@ import items.offensives.spells.FireBall;
 import items.offensives.spells.ThunderBolt;
 import items.offensives.weapons.Mace;
 import items.offensives.weapons.Sword;
+import rules.Case;
 
 public interface Find extends Case, Equip {
     default void findPotion(Job character) {

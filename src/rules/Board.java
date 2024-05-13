@@ -1,7 +1,4 @@
 package rules;
-
-import characters.Job;
-
 public class Board {
 
     private int size;

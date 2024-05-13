@@ -1,30 +1,30 @@
 package rules.cases;
 
-import characters.Enemy;
 import characters.Job;
 import characters.enemies.Dragon;
 import characters.enemies.Goblin;
 import characters.enemies.Warlock;
 import rules.Case;
+import rules.Game;
+import rules.interactions.Fight;
 
-public class EnemyCase implements Case {
+public class EnemyCase implements Case, Fight {
 
-
-    public EnemyCase(Job character) {
-        getEnemy(character);
+    public EnemyCase(Job character, Game game) {
+        getEnemy(character, game);
     }
 
-    public void getEnemy(Job character) {
+    public void getEnemy(Job character, Game game) {
         int randomEnemy = rand.nextInt(100) + 1;
         if (randomEnemy < 70) {
             System.out.println("Tu as trouvé un gobelin.");
-            fight(character, new Goblin());
+           fightOrFlee(character, new Goblin(), game);
         } else if (randomEnemy < 90) {
             System.out.println("Tu as trouvé un sorcier.");
-            fight(character, new Warlock());
+           fightOrFlee(character, new Warlock(), game);
         } else {
             System.out.println("Tu as trouvé un dragon.");
-            fight(character, new Dragon());
+            fightOrFlee(character, new Dragon(), game);
         }
     }
 
@@ -33,20 +33,5 @@ public class EnemyCase implements Case {
         return "EnemyCase";
     }
 
-    public void fight(Job character, Enemy enemy) {
-        while (character.getLifePoints() > 0 && enemy.getLifePoints() > 0) {
-            if (enemy.getAttackPoints() < character.getDefensePoints()) {
-                enemy.setLifePoints(enemy.getLifePoints() - character.getAttackPoints());
-            } else {
-                character.setLifePoints((character.getDefensePoints() + character.getLifePoints()) - enemy.getAttackPoints());
-                enemy.setLifePoints(enemy.getLifePoints() - character.getAttackPoints());
-            }
-        }
-        if (character.getLifePoints() <= 0) {
-            System.out.println("Game Over !");
-            System.exit(0);
-        } else {
-            System.out.println("Tu as gagné ce combat ! Il te reste " + character.getLifePoints() + " points de vie.");
-        }
-    }
+
 }

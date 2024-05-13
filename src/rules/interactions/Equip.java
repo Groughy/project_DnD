@@ -1,4 +1,4 @@
-package rules;
+package rules.interactions;
 
 import characters.Job;
 import characters.jobs.Mage;
@@ -8,8 +8,9 @@ import items.defensives.Philtre;
 import items.defensives.Shield;
 import items.offensives.Spell;
 import items.offensives.Weapon;
+import rules.Case;
 
-public interface Equip extends Case{
+public interface Equip extends Case {
     default void equipWeapon(Job character, Weapon item) {
         try {
             if (character instanceof Warrior) {
