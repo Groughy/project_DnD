@@ -3,10 +3,7 @@ package rules.interactions;
 import characters.Enemy;
 import characters.Job;
 import rules.Game;
-
 import java.util.Scanner;
-
-import static rules.Case.rand;
 
 public interface Fight {
 
@@ -29,10 +26,8 @@ public interface Fight {
 
     default void flee(Game game) {
         System.out.println("Vous essayez de fuir !");
-        int flee = rand.nextInt(100) + 1;
-        if (flee >= 20) {
-            System.out.println("Vous arrivez à fuir !");
-            int back = rand.nextInt(6) + 1;
+        if (Math.random() < 0.8) {
+            int back = (int) (Math.random() * 6) + 1;
             game.setPlayerPosition(game.getPlayerPosition() - back);
             System.out.println("Vous reculez de " + back + " cases.");
             System.out.println("Tu es à la " + game.getPlayerPosition() + " ème case.");

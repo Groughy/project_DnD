@@ -25,8 +25,6 @@ public interface Find extends Case, Equip {
         }
     }
 
-
-
     default void findOffensiveItem(Job character) {
         int randomOffensiveItem = rand.nextInt(2);
         if (randomOffensiveItem == 0) {
@@ -68,7 +66,6 @@ public interface Find extends Case, Equip {
             new ThunderBolt();
         }
     }
-
 
     default void findDefensiveItem(Job character) {
         int randomDefensiveItem = rand.nextInt(2);

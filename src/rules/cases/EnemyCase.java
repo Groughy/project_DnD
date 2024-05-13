@@ -32,6 +32,4 @@ public class EnemyCase implements Case, Fight {
     public String toString() {
         return "EnemyCase";
     }
-
-
 }

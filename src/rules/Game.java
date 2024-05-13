@@ -57,5 +57,4 @@ public class Game implements Case, Fight {
         }
         menu.display("Bravo, tu as fini le jeu ! Merci d'avoir joué !");
     }
-
 }
