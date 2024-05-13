@@ -14,7 +14,7 @@ public interface Equip extends Case{
         try {
             if (character instanceof Warrior) {
                 try {
-                    if (character.getAttackPoints() < item.getDamage()) {
+                    if (character.getAttackPoints() < (character.getAttackPoints()+item.getDamage())) {
                         character.setAttackPoints(character.getAttackPoints() + item.getDamage());
                         System.out.println("Tu t'équipes de " + item.getName() + " et gagne " + item.getDamage() + " points d'attaque.");
                     }
@@ -46,7 +46,7 @@ public interface Equip extends Case{
         try {
             if (character instanceof Mage) {
                 try {
-                    if (character.getAttackPoints() < item.getDamage()) {
+                    if (character.getAttackPoints() < (character.getAttackPoints()+item.getDamage())) {
                         character.setAttackPoints(character.getAttackPoints() + item.getDamage());
                         System.out.println("Tu lances le sort " + item.getName() + " et gagne " + item.getDamage() + " points d'attaque.");
                     }
@@ -61,7 +61,7 @@ public interface Equip extends Case{
 
     default void drinkPotion(Job character, Consummable consummable) {
         character.setLifePoints(character.getLifePoints() + consummable.getEffect());
-        System.out.println(character.getNameCharacter() + "a bu " + consummable.getName() + " et gagne " + consummable.getEffect() + " points de vie.");
+        System.out.println("Tu as bu " + consummable.getName() + " et gagne " + consummable.getEffect() + " points de vie.");
     }
 
     default void usePhiltre(Job character, Philtre item) {

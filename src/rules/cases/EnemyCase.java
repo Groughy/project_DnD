@@ -35,8 +35,12 @@ public class EnemyCase implements Case {
 
     public void fight(Job character, Enemy enemy) {
         while (character.getLifePoints() > 0 && enemy.getLifePoints() > 0) {
-            character.setLifePoints((character.getDefensePoints()+character.getLifePoints()) - enemy.getAttackPoints());
-            enemy.setLifePoints(enemy.getLifePoints() - character.getAttackPoints());
+            if (enemy.getAttackPoints() < character.getDefensePoints()) {
+                enemy.setLifePoints(enemy.getLifePoints() - character.getAttackPoints());
+            } else {
+                character.setLifePoints((character.getDefensePoints() + character.getLifePoints()) - enemy.getAttackPoints());
+                enemy.setLifePoints(enemy.getLifePoints() - character.getAttackPoints());
+            }
         }
         if (character.getLifePoints() <= 0) {
             System.out.println("Game Over !");
