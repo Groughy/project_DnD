@@ -18,8 +18,8 @@ public class Menu {
     }
 
     private boolean wannaPlay() {
-        return switch (scanner.nextLine()) {
-            case "yes", "Yes", "y", "Y", "" -> true;
+        return switch (scanner.nextLine().toLowerCase()) {
+            case "yes", "y", "" -> true;
             default -> false;
         };
     }

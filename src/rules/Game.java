@@ -1,6 +1,7 @@
 package rules;
 
 import characters.Job;
+import exceptions.CantEquipItException;
 import exceptions.CharacterOutofBoundsException;
 import rules.interactions.Fight;
 
@@ -38,7 +39,7 @@ public class Game implements Case, Fight {
     }
 
     private void turnBoard(Board board, Job character, Game game){
-
+        playerPosition = 0;
         while (playerPosition < board.getSize()) {
             menu.askToRoll();
             int dice = rollDice();
@@ -53,6 +54,8 @@ public class Game implements Case, Fight {
             } catch (CharacterOutofBoundsException e) {
                 menu.display("T'es au bout du tableau !");
                 break;
+            } catch (CantEquipItException e) {
+                throw new RuntimeException(e);
             }
         }
         menu.display("Bravo, tu as fini le jeu ! Merci d'avoir joué !");

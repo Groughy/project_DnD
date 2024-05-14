@@ -1,6 +1,7 @@
 package rules.interactions;
 
 import characters.Job;
+import exceptions.CantEquipItException;
 import items.consummables.Elixir;
 import items.consummables.Potion;
 import items.defensives.philtres.ExplosivePhiltre;
@@ -25,7 +26,7 @@ public interface Find extends Case, Equip {
         }
     }
 
-    default void findOffensiveItem(Job character) {
+    default void findOffensiveItem(Job character) throws CantEquipItException {
         int randomOffensiveItem = rand.nextInt(2);
         if (randomOffensiveItem == 0) {
             findWeapon(character);
@@ -34,7 +35,7 @@ public interface Find extends Case, Equip {
         }
     }
 
-    default void findWeapon(Job character) {
+    default void findWeapon(Job character) throws CantEquipItException {
         int randomWeapon = rand.nextInt(2);
         if (randomWeapon == 0) {
             System.out.println("Tu as trouvé une épée.");
@@ -45,7 +46,7 @@ public interface Find extends Case, Equip {
         }
     }
 
-    default void findShield(Job character) {
+    default void findShield(Job character) throws CantEquipItException {
         int randomShield = rand.nextInt(2);
         if (randomShield == 0) {
             System.out.println("Tu as trouvé un pavois.");
@@ -56,7 +57,7 @@ public interface Find extends Case, Equip {
         }
     }
 
-    default void findSpell(Job character) {
+    default void findSpell(Job character) throws CantEquipItException {
         int randomSpell = rand.nextInt(2);
         if (randomSpell == 0) {
             System.out.println("Tu as trouvé un sort de boule de feu.");
@@ -67,7 +68,7 @@ public interface Find extends Case, Equip {
         }
     }
 
-    default void findDefensiveItem(Job character) {
+    default void findDefensiveItem(Job character) throws CantEquipItException {
         int randomDefensiveItem = rand.nextInt(2);
         if (randomDefensiveItem == 0) {
             findShield(character);
@@ -77,7 +78,7 @@ public interface Find extends Case, Equip {
 
     }
 
-    default void findPhiltre(Job character) {
+    default void findPhiltre(Job character) throws CantEquipItException {
         int randomPhiltre = rand.nextInt(2);
         if (randomPhiltre == 0) {
             System.out.println("Tu as trouvé un philtre explosif.");
