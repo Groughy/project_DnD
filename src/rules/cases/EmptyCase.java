@@ -1,6 +1,8 @@
 package rules.cases;
 
+import characters.Job;
 import rules.Case;
+import rules.Game;
 
 
 public class EmptyCase implements Case {
@@ -11,5 +13,10 @@ public class EmptyCase implements Case {
     @Override
     public String toString() {
         return "EmptyCase";
+    }
+
+    @Override
+    public void randomizeCase(Job character, Game game) {
+
     }
 }

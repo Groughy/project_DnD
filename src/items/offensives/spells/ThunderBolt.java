@@ -1,6 +1,5 @@
 package items.offensives.spells;
 
-import characters.jobs.Mage;
 import items.offensives.Spell;
 
 public class ThunderBolt extends Spell {

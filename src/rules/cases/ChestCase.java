@@ -15,7 +15,7 @@ import rules.Case;
 import rules.Game;
 import rules.interactions.Find;
 
-public class ChestCase implements Case, Find {
+public class ChestCase implements Find, Case {
 
 
     public ChestCase(Job character) {
@@ -35,7 +35,6 @@ public class ChestCase implements Case, Find {
 
     @Override
     public void randomizeCase(Job character, Game game) {
-
     }
 
     @Override

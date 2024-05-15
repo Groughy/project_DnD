@@ -46,8 +46,7 @@ public class EnemyCase implements Fight {
             System.out.println("Il reste " + enemy.getLifePoints() + " Points de vie à l'adversaire");
         }
         if (character.getLifePoints() <= 0) {
-            System.out.println("Game Over !");
-            System.exit(0);
+            System.out.println("Tu as été battu !");
         } else {
             System.out.println("Tu as gagné ce combat ! Il te reste " + character.getLifePoints() + " points de vie.");
         }

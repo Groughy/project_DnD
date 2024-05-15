@@ -11,6 +11,7 @@ public class Mage extends Job implements Equip {
         this.setLifePoints(6);
         this.setDefaultAttackPoints(15);
         this.setWeapon(new Spell("beginning staff", 0, this));
+        this.setAttackPoints(getWeapon().getDamage());
         this.setDefaultDefensePoints(0);
         this.setShield(new Philtre("beginning philtre", 0, this));
     }

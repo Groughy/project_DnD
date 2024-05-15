@@ -48,7 +48,11 @@ public class Game implements Case {
 
     private void turnBoard(Board board, Job character, Game game) {
         playerPosition = 0;
-        while (playerPosition < board.getSize()) {
+        while (playerPosition < board.getSize() || character.getLifePoints() > 0){
+            if (character.getLifePoints() <= 0){
+                menu.display("Game Over !");
+                menu.launchGame();
+            }
             menu.askToRoll();
             int dice = rollDice();
             playerPosition += dice;

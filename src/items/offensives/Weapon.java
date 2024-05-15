@@ -1,6 +1,5 @@
 package items.offensives;
 
-import characters.Job;
 import characters.jobs.Warrior;
 import items.OffensiveEquipment;
 

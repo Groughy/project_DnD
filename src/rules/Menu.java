@@ -17,7 +17,7 @@ public class Menu {
         return wannaPlay();
     }
 
-    private boolean wannaPlay() {
+    boolean wannaPlay() {
         return switch (scanner.nextLine().toLowerCase()) {
             case "yes", "y", "" -> true;
             default -> false;
