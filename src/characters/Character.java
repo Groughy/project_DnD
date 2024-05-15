@@ -1,14 +1,42 @@
 package characters;
 
+import items.DefensiveEquipment;
+
 abstract public class Character {
     private String name;
     private int lifePoints;
     private int attackPoints;
+    private int defensePoints;
+    private int defaultAttackPoints;
+    private int defaultDefensePoints;
 
         public Character() {
 
     }
 
+    public int getDefensePoints() {
+        return defensePoints;
+    }
+
+    public void setDefensePoints(DefensiveEquipment defensiveEquipment) {
+        this.defensePoints = getDefaultDefensePoints() + defensiveEquipment.getDefensePoints();
+    }
+
+    public int getDefaultAttackPoints() {
+        return defaultAttackPoints;
+    }
+
+    public void setDefaultAttackPoints(int defaultAttackPoints) {
+        this.defaultAttackPoints = defaultAttackPoints;
+    }
+
+    public int getDefaultDefensePoints() {
+        return defaultDefensePoints;
+    }
+
+    public void setDefaultDefensePoints(int defaultDefensePoints) {
+        this.defaultDefensePoints = defaultDefensePoints;
+    }
 
     public String getNameCharacter() {
         return name;
@@ -22,8 +50,8 @@ abstract public class Character {
         return attackPoints;
     }
 
-    public void setAttackPoints(int attackPoints) {
-        this.attackPoints = attackPoints;
+    public void setAttackPoints(int offensiveEquipment) {
+        this.attackPoints = getDefaultAttackPoints() + offensiveEquipment;
     }
     public int getLifePoints() {
         return lifePoints;

@@ -1,11 +1,21 @@
 package characters;
 
+import items.DefensiveEquipment;
 import items.OffensiveEquipment;
 
 public class Job extends Character{
     private String nameCharacter;
     private OffensiveEquipment weapon;
+    private DefensiveEquipment shield;
     private int defensePoints;
+
+    public DefensiveEquipment getShield() {
+        return shield;
+    }
+
+    public void setShield(DefensiveEquipment shield) {
+        this.shield = shield;
+    }
 
     public int getDefensePoints() {
         return defensePoints;

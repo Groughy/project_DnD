@@ -1,18 +1,17 @@
 package rules.cases;
 
 import characters.Job;
-import exceptions.CantEquipItException;
 import rules.Case;
 import rules.interactions.Find;
 
 public class ChestCase implements Case, Find {
 
 
-    public ChestCase(Job character) throws CantEquipItException {
+    public ChestCase(Job character) {
         getLoot(character);
     }
 
-    public void getLoot(Job character) throws CantEquipItException {
+    public void getLoot(Job character) {
         int randomLoot = rand.nextInt(100) + 1;
         if (randomLoot < 50) {
             findPotion(character);

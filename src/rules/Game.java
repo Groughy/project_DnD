@@ -1,7 +1,6 @@
 package rules;
 
 import characters.Job;
-import exceptions.CantEquipItException;
 import exceptions.CharacterOutofBoundsException;
 import rules.interactions.Fight;
 
@@ -11,9 +10,17 @@ public class Game implements Case, Fight {
     private Menu menu;
     private int playerPosition = 0;
 
+    /**
+     * @return the playerPosition
+     */
+
     public int getPlayerPosition() {
         return playerPosition;
     }
+
+    /**
+     * @param playerPosition the playerPosition to set
+     */
 
     public void setPlayerPosition(int playerPosition) {
         this.playerPosition = playerPosition;
@@ -27,7 +34,7 @@ public class Game implements Case, Fight {
         return rand.nextInt(5) + 1;
     }
 
-    void play(Game game) {
+    void play(Game game)  {
         String name = menu.askName();
         Job character = menu.getJobByName();
         displayCharacter(name, character);
@@ -35,10 +42,10 @@ public class Game implements Case, Fight {
     }
 
     private void displayCharacter(String name, Job character) {
-        System.out.println(name + " is a " + character.getClass().getSimpleName() + " with "  + character.getLifePoints() + " life points, " + character.getAttackPoints() + " attack points, and is equipped with a " + character.getWeapon().getName() + ".");
+        System.out.println(name + " is a " + character.getClass().getSimpleName() + " with " + character.getLifePoints() + " life points, " + character.getAttackPoints() + " attack points, and is equipped with a " + character.getWeapon().getName() + ".");
     }
 
-    private void turnBoard(Board board, Job character, Game game){
+    private void turnBoard(Board board, Job character, Game game) {
         playerPosition = 0;
         while (playerPosition < board.getSize()) {
             menu.askToRoll();
@@ -46,7 +53,7 @@ public class Game implements Case, Fight {
             playerPosition += dice;
             try {
                 if (playerPosition >= board.getSize()) {
-                    throw new CharacterOutofBoundsException ();
+                    throw new CharacterOutofBoundsException();
                 }
                 menu.display("Tu as obtenu un " + dice);
                 menu.display("Tu es à la " + playerPosition + " ème case.");
@@ -54,8 +61,6 @@ public class Game implements Case, Fight {
             } catch (CharacterOutofBoundsException e) {
                 menu.display("T'es au bout du tableau !");
                 break;
-            } catch (CantEquipItException e) {
-                throw new RuntimeException(e);
             }
         }
         menu.display("Bravo, tu as fini le jeu ! Merci d'avoir joué !");

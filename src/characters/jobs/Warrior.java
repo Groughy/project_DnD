@@ -2,6 +2,7 @@ package characters.jobs;
 
 import characters.Job;
 import items.OffensiveEquipment;
+import items.defensives.Shield;
 import items.offensives.Weapon;
 
 public class Warrior extends Job {
@@ -9,8 +10,10 @@ public class Warrior extends Job {
     public Warrior() {
         this.setNameCharacter("Warrior");
         this.setLifePoints(10);
-        this.setAttackPoints(10);
+        this.setDefaultAttackPoints(10);
         this.setWeapon(new Weapon("beginning sword",0,Warrior.this));
-        this.setDefensePoints(0);
+        this.setAttackPoints(getWeapon().getDamage());
+        this.setDefaultDefensePoints(0);
+        this.setShield(new Shield("beginning shield",0,Warrior.this));
     }
 }

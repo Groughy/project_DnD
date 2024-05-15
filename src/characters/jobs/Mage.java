@@ -1,14 +1,16 @@
 package characters.jobs;
 
 import characters.Job;
+import items.defensives.Philtre;
 import items.offensives.Spell;
 
 public class Mage extends Job {
     public Mage() {
         this.setNameCharacter("Mage");
         this.setLifePoints(6);
-        this.setAttackPoints(15);
+        this.setDefaultAttackPoints(15);
         this.setWeapon(new Spell("beginning staff",0,this));
-        this.setDefensePoints(0);
+        this.setDefaultDefensePoints(0);
+        this.setShield(new Philtre("beginning philtre",0,this));
     }
 }

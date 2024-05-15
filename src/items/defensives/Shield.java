@@ -6,4 +6,7 @@ import items.DefensiveEquipment;
 
 public class Shield extends DefensiveEquipment {
 
+    public Shield(String beginningShield, int i, Warrior warrior) {
+        super();
+    }
 }
