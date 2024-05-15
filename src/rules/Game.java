@@ -2,9 +2,11 @@ package rules;
 
 import characters.Job;
 import exceptions.CharacterOutofBoundsException;
-import rules.interactions.Fight;
+import rules.cases.ChestCase;
+import rules.cases.EmptyCase;
+import rules.cases.EnemyCase;
 
-public class Game implements Case, Fight {
+public class Game implements Case {
 
     private Board board = new Board(64);
     private Menu menu;
@@ -17,7 +19,6 @@ public class Game implements Case, Fight {
     public int getPlayerPosition() {
         return playerPosition;
     }
-
     /**
      * @param playerPosition the playerPosition to set
      */
@@ -64,5 +65,17 @@ public class Game implements Case, Fight {
             }
         }
         menu.display("Bravo, tu as fini le jeu ! Merci d'avoir joué !");
+    }
+
+    @Override
+    public void randomizeCase(Job character, Game game) {
+        int position = rand.nextInt(100);
+        if (position < 30) {
+            new EnemyCase(character, game);
+        } else if (position < 50) {
+            new ChestCase(character);
+        } else {
+            new EmptyCase();
+        }
     }
 }

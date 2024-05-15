@@ -9,4 +9,8 @@ public class Philtre extends DefensiveEquipment {
     public Philtre(String beginningPhiltre, int i, Mage mage) {
         super();
     }
+
+    public Philtre() {
+        super();
+    }
 }
