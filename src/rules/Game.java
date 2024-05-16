@@ -5,6 +5,9 @@ import exceptions.CharacterOutofBoundsException;
 import rules.cases.ChestCase;
 import rules.cases.EmptyCase;
 import rules.cases.EnemyCase;
+import database.DataBase;
+
+import java.sql.SQLException;
 
 public class Game implements Case {
 
@@ -35,9 +38,11 @@ public class Game implements Case {
         return rand.nextInt(5) + 1;
     }
 
-    void play(Game game)  {
+    void play(Game game, DataBase dataBase) throws SQLException {
         String name = menu.askName();
         Job character = menu.getJobByName();
+        dataBase.createNewHero(character, name);
+        dataBase.getHero();
         displayCharacter(name, character);
         turnBoard(board, character, game);
     }

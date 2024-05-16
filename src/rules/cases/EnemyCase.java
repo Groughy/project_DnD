@@ -32,11 +32,6 @@ public class EnemyCase implements Fight {
     }
 
     @Override
-    public String toString() {
-        return "EnemyCase";
-    }
-
-    @Override
     public void fight(Job character, Enemy enemy) {
         while (character.getLifePoints() > 0 && enemy.getLifePoints() > 0) {
             if (enemy.getAttackPoints() >= character.getDefensePoints()) {

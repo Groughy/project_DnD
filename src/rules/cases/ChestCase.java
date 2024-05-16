@@ -39,8 +39,7 @@ public class ChestCase implements Find, Case {
 
     @Override
     public void findPotion(Job character) {
-        int randomPotion = rand.nextInt(2);
-        if (randomPotion == 0) {
+        if (rand.nextInt(2) == 0) {
             System.out.println("Tu as trouvé une potion de soin.");
             character.drinkPotion(character, new Potion());
         } else {
@@ -51,8 +50,7 @@ public class ChestCase implements Find, Case {
 
     @Override
     public void findOffensiveItem(Job character) {
-        int randomOffensiveItem = rand.nextInt(2);
-        if (randomOffensiveItem == 0) {
+        if (rand.nextInt(2) == 0) {
             findWeapon(character);
         } else {
             findSpell(character);
@@ -61,8 +59,8 @@ public class ChestCase implements Find, Case {
 
     @Override
     public void findWeapon(Job character) {
-        int randomWeapon = rand.nextInt(2);
-        if (randomWeapon == 0) {
+
+        if (rand.nextInt(2) == 0) {
             System.out.println("Tu as trouvé une épée.");
             character.equip(character, new Sword());
         } else {
@@ -73,8 +71,7 @@ public class ChestCase implements Find, Case {
 
     @Override
     public void findShield(Job character) {
-        int randomShield = rand.nextInt(2);
-        if (randomShield == 0) {
+        if (rand.nextInt(2) == 0) {
             System.out.println("Tu as trouvé un pavois.");
             character.equip(character, new Bulwark());
         } else {
@@ -85,8 +82,7 @@ public class ChestCase implements Find, Case {
 
     @Override
     public void findSpell(Job character) {
-        int randomSpell = rand.nextInt(2);
-        if (randomSpell == 0) {
+        if (rand.nextInt(2) == 0) {
             System.out.println("Tu as trouvé un sort de boule de feu.");
             character.castSpell(character, new FireBall());
         } else {
@@ -97,8 +93,7 @@ public class ChestCase implements Find, Case {
 
     @Override
     public void findDefensiveItem(Job character) {
-        int randomDefensiveItem = rand.nextInt(2);
-        if (randomDefensiveItem == 0) {
+        if (rand.nextInt(2) == 0) {
             findShield(character);
         } else {
             findPhiltre(character);
@@ -107,8 +102,7 @@ public class ChestCase implements Find, Case {
 
     @Override
     public void findPhiltre(Job character) {
-        int randomPhiltre = rand.nextInt(2);
-        if (randomPhiltre == 0) {
+        if (rand.nextInt(2) == 0) {
             System.out.println("Tu as trouvé un philtre explosif.");
             character.usePhiltre(character, new ExplosivePhiltre());
         } else {

@@ -3,7 +3,6 @@ package rules.interactions;
 import characters.Enemy;
 import characters.Job;
 import rules.Game;
-import java.util.Scanner;
 
 public interface Fight {
 

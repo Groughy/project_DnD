@@ -14,6 +14,15 @@ import items.offensives.Weapon;
 import rules.interactions.Equip;
 
 public class Job extends Character implements Equip {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    private String name;
     private String nameCharacter;
     private OffensiveEquipment weapon;
     private DefensiveEquipment shield;
