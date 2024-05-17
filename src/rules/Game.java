@@ -82,7 +82,7 @@ public class Game implements Case {
         if (position < 30) {
             new EnemyCase(character, game, dataBase);
         } else if (position < 50) {
-            new ChestCase(character);
+            new ChestCase(character, dataBase);
         } else {
             new EmptyCase();
         }

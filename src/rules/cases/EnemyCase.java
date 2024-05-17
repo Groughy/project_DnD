@@ -47,8 +47,7 @@ public class EnemyCase implements Fight {
             System.out.println("Tu as été battu !");
         } else {
             System.out.println("Tu as gagné ce combat ! Il te reste " + character.getLifePoints() + " points de vie.");
-            dataBase.updateCharacter(character);
-            dataBase.showLifePoints();
+            dataBase.updateLifePoints(character);
         }
     }
 

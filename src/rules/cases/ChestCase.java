@@ -21,18 +21,18 @@ import java.sql.SQLException;
 public class ChestCase implements Find, Case {
 
 
-    public ChestCase(Job character) {
-        getLoot(character);
+    public ChestCase(Job character, DataBase dataBase) throws SQLException {
+        getLoot(character, dataBase);
     }
 
-    public void getLoot(Job character) {
+    public void getLoot(Job character, DataBase dataBase) throws SQLException {
         int randomLoot = rand.nextInt(100) + 1;
         if (randomLoot < 50) {
-            findPotion(character);
+            findPotion(character, dataBase);
         } else if (randomLoot < 80) {
-            findOffensiveItem(character);
+            findOffensiveItem(character, dataBase);
         } else {
-            findDefensiveItem(character);
+            findDefensiveItem(character, dataBase);
         }
     }
 
@@ -42,7 +42,7 @@ public class ChestCase implements Find, Case {
     }
 
     @Override
-    public void findPotion(Job character) {
+    public void findPotion(Job character, DataBase dataBase) throws SQLException {
         if (rand.nextInt(2) == 0) {
             System.out.println("Tu as trouvé une potion de soin.");
             character.drinkPotion(character, new Potion());
@@ -50,15 +50,17 @@ public class ChestCase implements Find, Case {
             System.out.println("Tu as trouvé un élixir.");
             character.drinkPotion(character, new Elixir());
         }
+        dataBase.updateLifePoints(character);
     }
 
     @Override
-    public void findOffensiveItem(Job character) {
+    public void findOffensiveItem(Job character, DataBase dataBase) throws SQLException {
         if (rand.nextInt(2) == 0) {
             findWeapon(character);
         } else {
             findSpell(character);
         }
+        dataBase.updateAttackPoints(character);
     }
 
     @Override
@@ -96,12 +98,13 @@ public class ChestCase implements Find, Case {
     }
 
     @Override
-    public void findDefensiveItem(Job character) {
+    public void findDefensiveItem(Job character, DataBase dataBase) throws SQLException {
         if (rand.nextInt(2) == 0) {
             findShield(character);
         } else {
             findPhiltre(character);
         }
+        dataBase.updateDefensePoints(character);
     }
 
     @Override

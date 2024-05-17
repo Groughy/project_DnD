@@ -39,8 +39,8 @@ public class DataBase {
             pstmt.setInt(3, character.getLifePoints());
             pstmt.setInt(4, character.getAttackPoints());
             pstmt.setInt(5, character.getDefensePoints());
-            pstmt.setString(6, "beginning weapon");
-            pstmt.setString(7, "beginning shield");
+            pstmt.setString(6, character.getWeapon().getName());
+            pstmt.setString(7, character.getShield().getName());
             pstmt.executeUpdate();
         }
     }
@@ -56,36 +56,21 @@ public class DataBase {
 
     public void updateAttackPoints(Job character) throws SQLException {
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS)) {
-            String sql = "UPDATE Hero SET attackPoints = ? WHERE id = (SELECT MAX(id) FROM Hero)";
+            String sql = "UPDATE Hero SET attackPoints = ?, weapon = ? WHERE id = (SELECT MAX(id) FROM Hero)";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, character.getAttackPoints());
+            pstmt.setString(2, character.getWeapon().getName());
             pstmt.executeUpdate();
         }
     }
 
     public void updateDefensePoints(Job character) throws SQLException {
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS)) {
-            String sql = "UPDATE Hero SET defensePoints = ? WHERE id = (SELECT MAX(id) FROM Hero)";
+            String sql = "UPDATE Hero SET defensePoints = ?, shield = ? WHERE id = (SELECT MAX(id) FROM Hero)";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, character.getDefensePoints());
+            pstmt.setString(2, character.getShield().getName());
             pstmt.executeUpdate();
-        }
-    }
-
-    public void updateCharacter(Job character) throws SQLException {
-        updateLifePoints(character);
-        updateAttackPoints(character);
-        updateDefensePoints(character);
-    }
-
-    public void showLifePoints() throws SQLException {
-        try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS)) {
-            String SQL = "SELECT lifePoints FROM Hero WHERE id = (SELECT MAX(id) FROM Hero)";
-            PreparedStatement pstmt = conn.prepareStatement(SQL);
-            ResultSet rs = pstmt.executeQuery();
-            while (rs.next()) {
-                System.out.println("Il te reste " + rs.getInt("lifePoints") + " points de vie.");
-            }
         }
     }
 }
