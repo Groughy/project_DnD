@@ -39,19 +39,19 @@ public class Game implements Case {
     }
 
     void play(Game game, DataBase dataBase) throws SQLException {
-        String name = menu.askName();
         Job character = menu.getJobByName();
+        String name = menu.askName(character);
         dataBase.createNewHero(character, name);
         dataBase.getHero();
-        displayCharacter(name, character);
-        turnBoard(board, character, game);
+        displayCharacter(character);
+        turnBoard(board, character, game, dataBase);
     }
 
-    private void displayCharacter(String name, Job character) {
-        System.out.println(name + " is a " + character.getClass().getSimpleName() + " with " + character.getLifePoints() + " life points, " + character.getAttackPoints() + " attack points, and is equipped with a " + character.getWeapon().getName() + ".");
+    private void displayCharacter( Job character) {
+        System.out.println(character.getName() + " is a " + character.getNameCharacter() + " with " + character.getLifePoints() + " life points, " + character.getAttackPoints() + " attack points, and is equipped with a " + character.getWeapon().getName() + ".");
     }
 
-    private void turnBoard(Board board, Job character, Game game) {
+    private void turnBoard(Board board, Job character, Game game, DataBase dataBase) throws SQLException {
         playerPosition = 0;
         while (playerPosition < board.getSize() || character.getLifePoints() > 0){
             if (character.getLifePoints() <= 0){
@@ -67,7 +67,7 @@ public class Game implements Case {
                 }
                 menu.display("Tu as obtenu un " + dice);
                 menu.display("Tu es à la " + playerPosition + " ème case.");
-                randomizeCase(character, game);
+                randomizeCase(character, game, dataBase);
             } catch (CharacterOutofBoundsException e) {
                 menu.display("T'es au bout du tableau !");
                 break;
@@ -77,10 +77,10 @@ public class Game implements Case {
     }
 
     @Override
-    public void randomizeCase(Job character, Game game) {
+    public void randomizeCase(Job character, Game game, DataBase dataBase) throws SQLException {
         int position = rand.nextInt(100);
         if (position < 30) {
-            new EnemyCase(character, game);
+            new EnemyCase(character, game, dataBase);
         } else if (position < 50) {
             new ChestCase(character);
         } else {

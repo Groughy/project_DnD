@@ -1,6 +1,7 @@
 package rules.cases;
 
 import characters.Job;
+import database.DataBase;
 import items.consummables.Elixir;
 import items.consummables.Potion;
 import items.defensives.philtres.ExplosivePhiltre;
@@ -14,6 +15,8 @@ import items.offensives.weapons.Sword;
 import rules.Case;
 import rules.Game;
 import rules.interactions.Find;
+
+import java.sql.SQLException;
 
 public class ChestCase implements Find, Case {
 
@@ -34,7 +37,8 @@ public class ChestCase implements Find, Case {
     }
 
     @Override
-    public void randomizeCase(Job character, Game game) {
+    public void randomizeCase(Job character, Game game, DataBase dataBase) throws SQLException {
+
     }
 
     @Override

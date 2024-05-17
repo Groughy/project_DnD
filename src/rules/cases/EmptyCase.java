@@ -1,6 +1,7 @@
 package rules.cases;
 
 import characters.Job;
+import database.DataBase;
 import rules.Case;
 import rules.Game;
 
@@ -16,7 +17,7 @@ public class EmptyCase implements Case {
     }
 
     @Override
-    public void randomizeCase(Job character, Game game) {
+    public void randomizeCase(Job character, Game game, DataBase dataBase) {
 
     }
 }

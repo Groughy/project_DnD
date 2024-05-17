@@ -1,16 +1,9 @@
 package items;
 
 public class DefensiveEquipment extends Item {
-    private String name;
-
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public void setName(String name) {
+    public DefensiveEquipment(String name, int defensePoints) {
         this.name = name;
+        this.defensePoints = defensePoints;
     }
 
     private int defensePoints;

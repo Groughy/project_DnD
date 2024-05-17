@@ -14,22 +14,22 @@ import items.offensives.Weapon;
 import rules.interactions.Equip;
 
 public class Job extends Character implements Equip {
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     private String name;
     private String nameCharacter;
     private OffensiveEquipment weapon;
     private DefensiveEquipment shield;
     private int defensePoints;
-
     public DefensiveEquipment getShield() {
         return shield;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setShield(DefensiveEquipment shield) {
@@ -66,7 +66,7 @@ public class Job extends Character implements Equip {
     }
     @Override
     public String toString() {
-        return nameCharacter + " is a " + getNameCharacter() + " with " + getLifePoints() + " life points, " + getAttackPoints() + " attack points, and is equipped with a " + getWeapon().getName() + ".";
+        return name + " is a " + getNameCharacter() + " with " + getLifePoints() + " life points, " + getAttackPoints() + " attack points, and is equipped with a " + getWeapon().getName() + ".";
     }
 
     @Override

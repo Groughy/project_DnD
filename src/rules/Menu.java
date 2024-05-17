@@ -53,9 +53,10 @@ public class Menu {
         System.out.println(o.toString());
     }
 
-    public String askName() {
+    public String askName(Job character){
         display("Enter the name of your character: ");
         Scanner askName = new Scanner(System.in);
-        return askName.nextLine();
+        character.setName(askName.nextLine());
+        return character.getName();
     }
 }

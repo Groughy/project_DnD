@@ -14,6 +14,6 @@ public class Warrior extends Job implements Equip {
         this.setWeapon(new Weapon("beginning sword", 0, Warrior.this));
         this.setAttackPoints(getWeapon().getDamage());
         this.setDefaultDefensePoints(0);
-        this.setShield(new Shield("beginning shield", 0, Warrior.this));
+        this.setShield(new Shield("beginning shield", 0));
     }
 }

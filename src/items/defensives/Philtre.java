@@ -6,11 +6,7 @@ import items.DefensiveEquipment;
 
 public class Philtre extends DefensiveEquipment {
 
-    public Philtre(String beginningPhiltre, int i, Mage mage) {
-        super();
-    }
-
-    public Philtre() {
-        super();
+    public Philtre(String name, int defensePoints) {
+        super(name, defensePoints);
     }
 }
